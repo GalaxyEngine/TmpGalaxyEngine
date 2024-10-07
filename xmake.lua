@@ -7,9 +7,9 @@ package("gla")
              "https://github.com/Dav1dde/glad.git")
 
     add_versions("v0.1.34", "4be2900ff76ac71a2aab7a8be301eb4c0338491c7e205693435b09aad4969ecd")
-    add_versions("v0.1.36", "8470ed1b0e9fbe88e10c34770505c8a1dc8ccb78cadcf673331aaf5224f963d2")
+    --add_versions("v0.1.36", "8470ed1b0e9fbe88e10c34770505c8a1dc8ccb78cadcf673331aaf5224f963d2")
 
-    add_patches("0.1.36", "patches/0.1.36/utf8.patch", "13ec9c50ee0b5e465513e038b390362b9a3b8b62e5c5c08804b27ae35e9d86fb")
+    --add_patches("0.1.36", "patches/0.1.36/utf8.patch", "13ec9c50ee0b5e465513e038b390362b9a3b8b62e5c5c08804b27ae35e9d86fb")
 
     if is_plat("linux") then
         add_syslinks("dl")
@@ -299,7 +299,6 @@ package("joltphysic")
         ]]}, {configs = {languages = "c++17"}, includes = {"Jolt/Jolt.h", "Jolt/Physics/PhysicsSystem.h"}}))
     end)
 package_end()
-
 
 add_rules("mode.release", "mode.debug", "mode.gamedbg", "mode.game")
 add_rules("plugin.vsxmake.autoupdate")
