@@ -29,12 +29,12 @@ package("gla")
     add_configs("spec", {description = "OpenGL spec", default = "gl", type = "string"})
 
     on_install("windows", "linux", "macosx", "mingw", function (package)
+        local configs = {"-DGLAD_INSTALL=ON"}
         if (is_plat("linux")) then      
             if package:config("pic") ~= false then
                 table.insert(configs, "-DCMAKE_POSITION_INDEPENDENT_CODE=ON")
             end
         end
-        local configs = {"-DGLAD_INSTALL=ON"}
         table.insert(configs, "-DCMAKE_BUILD_TYPE=" .. (package:debug() and "Debug" or "Release"))
         table.insert(configs, "-DBUILD_SHARED_LIBS=" .. (package:config("shared") and "ON" or "OFF"))
         table.insert(configs, "-DGLAD_REPRODUCIBLE=" .. (package:config("reproducible") and "ON" or "OFF"))
